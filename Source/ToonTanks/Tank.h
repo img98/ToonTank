@@ -19,6 +19,13 @@ public:
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class USpringArmComponent* SpringArm;
@@ -28,8 +35,11 @@ private:
 	void MoveForward(float Scale);
 	void Turn(float Scale);
 
+	APlayerController* PlayerControllerRef;
+
 	UPROPERTY(EditAnywhere, Category = "Movement", meta = (AllowPrivateAccess = "true"))
 	float Speed = 100.f;
 	UPROPERTY(EditAnywhere, Category = "Movement", meta = (AllowPrivateAccess = "true"))
 	float TurnRate = 45.f;
+
 };
