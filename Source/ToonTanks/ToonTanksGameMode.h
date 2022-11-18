@@ -26,7 +26,7 @@ protected:
 	void StartGame();
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void GameOver(bool bWonGame);
+	void GameOver(bool bWonGame);
 
 private:
 
